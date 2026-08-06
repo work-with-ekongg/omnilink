@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | OmniLink</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 max-w-md w-full mx-4">
+        <div class="text-center mb-6">
+            <a href="{% url 'home' %}" class="font-bold text-2xl text-slate-900 tracking-tight">Omni<span class="text-emerald-600">Link</span></a>
+            <h2 class="text-lg font-semibold text-slate-700 mt-2">Welcome back, vendor</h2>
+        </div>
+
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 rounded-xl transition shadow-sm">
+                Log In
+            </button>
+        </form>
+
+        <p class="text-center text-sm text-slate-500 mt-6">
+            Don't have an account? <a href="{% url 'register' %}" class="text-emerald-600 font-medium">Sign up</a>
+        </p>
+    </div>
+
+</body>
+</html>
+
